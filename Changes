@@ -1,0 +1,6 @@
+Revision history for Perl extension Win32::Process::Critical.
+
+0.01  Mon Apr 13 20:05:15 2009
+	- original version; created by h2xs 1.23 with options
+		-A Win32::Process::Critical
+
