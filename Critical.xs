@@ -4,6 +4,8 @@
 #include "main.c"
 
 MODULE = Win32::Process::Critical		PACKAGE = Win32::Process::Critical		
+int
+SetIsCritic();
 
-bool
-Critic ()
+int
+SetNotCritic();

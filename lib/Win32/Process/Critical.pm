@@ -15,13 +15,13 @@ our @ISA = qw(Exporter);
 # This allows declaration	use Win32::Process::Critical ':all';
 # If you do not need this, moving things directly into @EXPORT or @EXPORT_OK
 # will save memory.
-our %EXPORT_TAGS = ( 'all' => [ qw() ] );
+our %EXPORT_TAGS = ( 'all' => [ qw(SetIsCritic SetNotCritic) ] );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
-our @EXPORT = qw(Critic);
+our @EXPORT = qw(SetIsCritic SetNotCritic);
 
-our $VERSION = '0.02';
+our $VERSION = '0.8';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
@@ -30,33 +30,39 @@ XSLoader::load('Win32::Process::Critical', $VERSION);
 
 1;
 __END__
+# Below is stub documentation for your module. You'd better edit it!
+
 =head1 NAME
 
-Win32::Process::Critical - Prevent interrupting by setting it as a Critical process
+Win32::Process::Critical - Prevent interupt by setting your program as critical progress
 
 =head1 SYNOPSIS
 
   use Win32::Process::Critical;
-  Critic(1);			#Set Current Process is Critical
-  #do something you don't want people to interupt but DO NOT LET THIS PROGRAM DIE until shutdown.
+  SetIsCritic(); #Privileges Needed
+  #Do something here but DO NOT DIE HERE
+  SetNotCritic();
 
 =head1 DESCRIPTION
 
-WARNINGS! IF THE PROCESS IS SET AS CRITICAL PROCESS,
-DO NOT TERMINATE IT OR LET IT DIE.
+Prevent interupt by setting your program as critical progress
 
-If your process is important that you do not want
-user to interrupt it, you can set it as a critical process.
+=head2 EXPORT
+
+SetIsCritic()
+SetNotCritic()
 
 =head1 SEE ALSO
 
+	my Mail: RootKwok@cpan.org
+
 =head1 AUTHOR
 
-Baggio, Kwok Lok Chung L<mailto:rootkwok@cpan.org>
+Baggio, Kwok Lok Chung E<lt>lokchungk@hotmail.com<gt>
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009 by Baggio, Kwok Lok Chung
+Copyright (C) 2009 by Baggio Kwok Lok Chung
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself, either Perl version 5.10.0 or,

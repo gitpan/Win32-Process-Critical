@@ -1,6 +1,0 @@
-name: Win32-Process-Critical
-version: 0.2
-version_from: Critical.pm
-installdirs: site
-requires:
-distribution_type: module
