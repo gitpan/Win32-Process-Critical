@@ -21,7 +21,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(SetIsCritic SetNotCritic);
 
-our $VERSION = '0.8';
+our $VERSION = '0.82';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
@@ -45,20 +45,22 @@ Win32::Process::Critical - Prevent interupt by setting your program as critical 
 
 =head1 DESCRIPTION
 
-Prevent interupt by setting your program as critical progress
+	Prevent interupt by setting your program as critical progress
 
 =head2 EXPORT
 
-SetIsCritic()
-SetNotCritic()
+	SetIsCritic()
+	SetNotCritic()
 
 =head1 SEE ALSO
 
-	my Mail: RootKwok@cpan.org
+	my Mail: L<rootkwok@cpan.org>
+	Install Win32::Process::Critical with PPM:
+	ppm install http://sites.google.com/site/lokchungk/mod/Win32-Process-Critical.ppd?attredirects=0
 
 =head1 AUTHOR
 
-Baggio, Kwok Lok Chung E<lt>lokchungk@hotmail.com<gt>
+Baggio, Kwok Lok Chung L<rootkwok@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 

