@@ -1,6 +1,6 @@
 package Win32::Process::Critical;
 
-use 5.010000;
+#use 5.010000;
 use strict;
 use warnings;
 
@@ -21,7 +21,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(SetIsCritic SetNotCritic);
 
-our $VERSION = '0.82';
+our $VERSION = '1.02';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
