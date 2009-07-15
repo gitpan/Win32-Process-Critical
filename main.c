@@ -16,16 +16,11 @@ int Import () {
 		}
 		return 1;
 	}
+	FreeLibrary(hNTDLL);
 	return 0;	
 }
 
 int SetIsCritic(void){
-	static imported = 0;
-	if(!imported){
-		if(Import()){
-			imported++;
-		}
-	}
 	SetCritical(TRUE,NULL,FALSE);
 	SetProcessShutdownParameters(0,0);
 	return 1;

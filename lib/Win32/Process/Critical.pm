@@ -1,9 +1,5 @@
 package Win32::Process::Critical;
 
-#use 5.010000;
-use strict;
-use warnings;
-
 require Exporter;
 
 our @ISA = qw(Exporter);
@@ -21,13 +17,13 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(SetIsCritic SetNotCritic);
 
-our $VERSION = '1.02';
+our $VERSION = '1.022';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
 
 # Preloaded methods go here.
-
+Import();
 1;
 __END__
 # Below is stub documentation for your module. You'd better edit it!
