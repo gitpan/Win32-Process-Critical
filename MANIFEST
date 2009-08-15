@@ -1,7 +1,7 @@
 Critical.xs
+demo.pl
 lib/Win32/Process/Critical.pm
 main.c
 Makefile.PL
 MANIFEST			This list of files
-test.pl
 META.yml                                 Module meta-data (added by MakeMaker)

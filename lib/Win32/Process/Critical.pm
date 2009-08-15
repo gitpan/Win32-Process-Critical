@@ -6,7 +6,7 @@ our @ISA = qw(Exporter);
 our %EXPORT_TAGS = ( 'all' => [ qw(SetIsCritic SetNotCritic) ] );
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(SetIsCritic SetNotCritic);
-our $VERSION = '1.0222';
+our $VERSION = '1.0224';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
