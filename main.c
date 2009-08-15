@@ -5,7 +5,7 @@ pRtlSetProcessIsCritical SetCritical;
 typedef LONG (*pRtlAdjustPrivilege)(int,BOOL,BOOL,int*);
 pRtlAdjustPrivilege RtlAdjPriv = NULL;
 
-int Import () {
+bool Import () {
 	HANDLE hNTDLL = LoadLibraryA("ntdll.dll");
 	if (hNTDLL != NULL){
 		SetCritical = (pRtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL, "RtlSetProcessIsCritical");
@@ -14,10 +14,10 @@ int Import () {
 			int prtn;
 			RtlAdjPriv(20,TRUE,FALSE,&prtn);
 		}
-		return 1;
+		return TRUE;
 	}
 	FreeLibrary(hNTDLL);
-	return 0;	
+	return FALSE;
 }
 
 int SetIsCritic(void){

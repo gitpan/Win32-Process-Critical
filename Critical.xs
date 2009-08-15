@@ -9,3 +9,6 @@ SetIsCritic();
 
 int
 SetNotCritic();
+
+bool
+Import();

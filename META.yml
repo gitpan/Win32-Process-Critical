@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Win32-Process-Critical
-version:            1.022
+version:            1.0222
 abstract:           Prevent interupt by setting your program as critical progress
 author:
     - Baggio, Kwok Lok Chung <RootKwok@cpan.org>
