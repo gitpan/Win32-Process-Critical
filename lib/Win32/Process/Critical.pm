@@ -4,7 +4,7 @@ require Exporter;
 
 our @ISA = qw(Exporter);
 our @EXPORT = qw(SetIsCritic SetNotCritic);
-our $VERSION = '1.0226';
+our $VERSION = '1.02264';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
