@@ -4,10 +4,10 @@
 #include "main.c"
 
 MODULE = Win32::Process::Critical		PACKAGE = Win32::Process::Critical		
-int
+bool
 SetIsCritic();
 
-int
+bool
 SetNotCritic();
 
 bool

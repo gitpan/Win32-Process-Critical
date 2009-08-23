@@ -3,10 +3,8 @@ package Win32::Process::Critical;
 require Exporter;
 
 our @ISA = qw(Exporter);
-our %EXPORT_TAGS = ( 'all' => [ qw(SetIsCritic SetNotCritic) ] );
-our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(SetIsCritic SetNotCritic);
-our $VERSION = '1.0224';
+our $VERSION = '1.0226';
 
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
@@ -37,6 +35,7 @@ Win32::Process::Critical - Prevent interupt by setting your program as critical 
 
 =head1 SEE ALSO
 
+	Demo.pl
 	my Mail: <rootkwok <AT> cpan <DOT> org>
 
 =head1 AUTHOR
