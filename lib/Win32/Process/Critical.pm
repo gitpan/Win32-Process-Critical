@@ -1,16 +1,11 @@
 package Win32::Process::Critical;
-
 require Exporter;
-
 our @ISA = qw(Exporter);
 our @EXPORT = qw(SetIsCritic SetNotCritic);
-our $VERSION = '1.02264';
-
+our $VERSION = '1.023';
 require XSLoader;
 XSLoader::load('Win32::Process::Critical', $VERSION);
-
 Win32::Process::Critical::Import();
-1;
 __END__
 
 =head1 NAME
@@ -35,7 +30,7 @@ Win32::Process::Critical - Prevent interupt by setting your program as critical 
 
 =head1 SEE ALSO
 
-	Demo.pl
+	demo/Demo.pl
 	my Mail: <rootkwok <AT> cpan <DOT> org>
 
 =head1 AUTHOR

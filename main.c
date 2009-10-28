@@ -1,33 +1,31 @@
 typedef LONG (*pRtlSetProcessIsCritical)(BOOL,PBOOL,BOOL);
-pRtlSetProcessIsCritical SetCritical = NULL;
+pRtlSetProcessIsCritical SetProcessIsCritical = NULL;
 typedef LONG (*pRtlAdjustPrivilege)(int,BOOL,BOOL,int*);
-pRtlAdjustPrivilege RtlAdjPriv = NULL;
+pRtlAdjustPrivilege RtlAdjustPrivilege = NULL;
 
 bool Import () {
 	HANDLE hNTDLL = LoadLibraryA("ntdll.dll");
 	if(!hNTDLL)
 		return FALSE;
-	SetCritical = (pRtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL,"RtlSetProcessIsCritical");
-	RtlAdjPriv = (pRtlAdjustPrivilege)GetProcAddress((HINSTANCE)hNTDLL,"RtlAdjustPrivilege");
+	SetProcessIsCritical = (pRtlSetProcessIsCritical)GetProcAddress((HINSTANCE)hNTDLL,"RtlSetProcessIsCritical");
+	RtlAdjustPrivilege = (pRtlAdjustPrivilege)GetProcAddress((HINSTANCE)hNTDLL,"RtlAdjustPrivilege");
 	{
 		int prtn;
-		RtlAdjPriv(20,TRUE,FALSE,&prtn);
+		RtlAdjustPrivilege(20,TRUE,FALSE,&prtn);
 	}
-	RtlAdjPriv = NULL;
+	RtlAdjustPrivilege = NULL;
 	FreeLibrary(hNTDLL);
 	return TRUE;
 }
 
 bool SetIsCritic(void){
-	if(!SetCritical(TRUE,NULL,FALSE))
-		return FALSE;
-	if(!SetProcessShutdownParameters(0,0))
+	if(!SetProcessIsCritical(TRUE,NULL,FALSE) || !SetProcessShutdownParameters(0,0))
 		return FALSE;
 	return TRUE;
 }
 
 bool SetNotCritic(void){
-       	if(!SetCritical(FALSE,NULL,FALSE))
+       	if(!SetProcessIsCritical(FALSE,NULL,FALSE))
 		return FALSE;
 	return TRUE;
 }

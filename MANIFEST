@@ -1,5 +1,5 @@
 Critical.xs
-demo.pl
+demo/demo.pl
 lib/Win32/Process/Critical.pm
 main.c
 Makefile.PL
